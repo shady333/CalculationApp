@@ -1,5 +1,6 @@
 package com.company.organizer.chart.bubble.data;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -51,6 +52,6 @@ public class SeriesData {
         allData.add(xValue);
         allData.add(yValue);
         allData.add(size);
-        return allData;
+        return Collections.unmodifiableList(allData);
     }
 }

@@ -80,15 +80,16 @@ public class BubbleChart implements Chart {
     }
 
     private void addSeries() {
-        for (int rowNumber = ROW_INDEX_IN_CELL_REFERENCE; rowNumber <= getSourceSheet().getLastRowNum(); rowNumber++) {
+        int allRows = getSourceSheet().getLastRowNum();
+        for (int rowNumber = ROW_INDEX_IN_CELL_REFERENCE; rowNumber <= allRows; rowNumber++) {
             CellReference cellReference = new CellReference(chartData, rowNumber);
             Series series = new Series(bubbleChart.addNewSer());
 
-            series.setName(cellReference.getReference(seriesData.getName()));
+            series.setName(cellReference.get(seriesData.getName()));
             series.setColor(rowNumber);
-            series.setXValue(cellReference.getReference(seriesData.getXValue()));
-            series.setYValue(cellReference.getReference(seriesData.getYValue()));
-            series.setSize(cellReference.getReference(seriesData.getSize()));
+            series.setXValue(cellReference.get(seriesData.getXValue()));
+            series.setYValue(cellReference.get(seriesData.getYValue()));
+            series.setSize(cellReference.get(seriesData.getSize()));
 
             // compute merged rows
             int rowIndex = rowNumber - 1;

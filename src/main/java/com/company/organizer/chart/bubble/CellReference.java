@@ -40,12 +40,18 @@ public class CellReference {
         return chartData.getSourceData().getWorkbook().getSheet(chartData.getSourceData().getSheetName());
     }
 
-    public String getReference(String columnName) {
+    /**
+     * Get cel reference by column name
+     */
+    public String get(String columnName) {
         String template = String.format(CELL_REFERENCE_TEMPLATE, chartData.getSourceData().getSheetName(), rowIndex);
         return template + columnIndexes.get(columnName);
     }
 
-    public String getReference(int columnIndex) {
+    /**
+     * Get cell reference by column index
+     */
+    public String get(int columnIndex) {
         String template = String.format(CELL_REFERENCE_TEMPLATE, chartData.getSourceData().getSheetName(), rowIndex);
         return template + columnIndex;
     }

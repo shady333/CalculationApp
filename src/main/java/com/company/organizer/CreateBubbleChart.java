@@ -26,6 +26,7 @@ public class CreateBubbleChart {
                 .firstColumnIndex(5)
                 .firstRowIndex(5)
                 .build();
+
         SeriesData seriesData = new SeriesData();
         seriesData.setName("Project");
         seriesData.setXValue("Seniority per project");
